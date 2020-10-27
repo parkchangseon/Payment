@@ -42,6 +42,32 @@ public class Payment {
 
         }
     }
+    
+    @PreUpdate
+    public void onPreUpdate() {
+
+        if ("payment".equals(ReservationStatus) ) {
+            System.out.println("=============결재 승인 처리중=============");
+            PaymentCompleted paymentCompleted = new PaymentCompleted();
+
+            setPaymentStatus("Y");
+            paymentCompleted.setPaymentId(PaymentId);
+            paymentCompleted.setReservationNumber(ReservationNumber);
+            paymentCompleted.setPaymentPrice(PaymentPrice);
+            paymentCompleted.setReservationStatus(ReservationStatus);
+            paymentCompleted.setPaymentStatus(PaymentStatus);
+            BeanUtils.copyProperties(this, paymentCompleted);
+            paymentCompleted.publishAfterCommit();
+
+            try {
+                Thread.currentThread().sleep((long) (400 + Math.random() * 220));
+                System.out.println("=============결재 승인 완료=============");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        }
+    }
 
     public int getPaymentId() {
         return PaymentId;
