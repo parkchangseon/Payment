@@ -1,4 +1,4 @@
-package hotelmanage;
+package accommodation;
 
 public class PaymentCompleted extends AbstractEvent{
     private int ReservationNumber;
@@ -14,14 +14,11 @@ public class PaymentCompleted extends AbstractEvent{
         ReservationStatus = reservationStatus;
     }
 
-
-
     public void setPaymentStatus(String paymentStatus) {
         PaymentStatus = paymentStatus;
     }
 
     private String PaymentStatus;
-
 
     public PaymentCompleted(){
         super();
