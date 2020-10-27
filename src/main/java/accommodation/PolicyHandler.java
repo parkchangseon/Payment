@@ -17,9 +17,7 @@ public class PolicyHandler{
             Payment Payment = new Payment();
 
             Payment.setPaymentStatus("Y");
-            PaymentRepository.save(Payment);
-
+            // PaymentRepository.save(Payment);
         }
     }
-
 }

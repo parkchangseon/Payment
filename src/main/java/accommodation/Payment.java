@@ -26,15 +26,10 @@ public class Payment {
 
             setPaymentStatus("Y");
             paymentCompleted.setPaymentId(PaymentId);
-            System.out.printf("PaymentId : %d\n",PaymentId);
             paymentCompleted.setReservationNumber(ReservationNumber);
-            System.out.printf("ReservationNumber : %d\n",ReservationNumber);
             paymentCompleted.setPaymentPrice(PaymentPrice);
-            System.out.printf("PaymentPrice : %d\n",PaymentPrice);
             paymentCompleted.setReservationStatus(ReservationStatus);
-            System.out.printf("ReservationStatus : %s\n",ReservationStatus);
             paymentCompleted.setPaymentStatus(PaymentStatus);
-            System.out.printf("PaymentStatus : %s\n",PaymentStatus);
             BeanUtils.copyProperties(this, paymentCompleted);
             paymentCompleted.publishAfterCommit();
 
