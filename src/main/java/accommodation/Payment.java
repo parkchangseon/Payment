@@ -20,7 +20,7 @@ public class Payment {
     @PrePersist
     public void onPrePersist() {
 
-        if ("reserve".equals(ReservationStatus) ) {
+        if ("payment".equals(ReservationStatus) ) {
             System.out.println("=============결재 승인 처리중=============");
             PaymentCompleted paymentCompleted = new PaymentCompleted();
 
@@ -42,8 +42,6 @@ public class Payment {
 
         }
     }
-
-
 
     public int getPaymentId() {
         return PaymentId;
